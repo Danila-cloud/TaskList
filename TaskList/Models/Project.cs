@@ -22,5 +22,10 @@ namespace TaskList.Models
         public DateTime DateCreate { get; set; }
 
         public ICollection<Task> Tasks { get; set; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

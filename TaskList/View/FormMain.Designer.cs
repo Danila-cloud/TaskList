@@ -68,6 +68,7 @@ namespace TaskList.View
             this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.toPdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -79,7 +80,8 @@ namespace TaskList.View
             this.файлToolStripMenuItem,
             this.правкаToolStripMenuItem,
             this.сервисToolStripMenuItem,
-            this.справкаToolStripMenuItem});
+            this.справкаToolStripMenuItem,
+            this.toPdfToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -316,6 +318,7 @@ namespace TaskList.View
             this.listBox.Name = "listBox";
             this.listBox.Size = new System.Drawing.Size(177, 251);
             this.listBox.TabIndex = 1;
+            this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -347,6 +350,7 @@ namespace TaskList.View
             this.button1.TabIndex = 4;
             this.button1.Text = "Create project";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -387,6 +391,13 @@ namespace TaskList.View
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Tasks:";
+            // 
+            // toPdfToolStripMenuItem
+            // 
+            this.toPdfToolStripMenuItem.Name = "toPdfToolStripMenuItem";
+            this.toPdfToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.toPdfToolStripMenuItem.Text = "To pdf";
+            this.toPdfToolStripMenuItem.Click += new System.EventHandler(this.toPdfToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -451,5 +462,6 @@ namespace TaskList.View
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem toPdfToolStripMenuItem;
     }
 }
