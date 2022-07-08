@@ -9,7 +9,10 @@ namespace TaskList.Data
 {
     class ApplicationDbContextv : DbContext
     {
-        private string sqlConnectionString = @"C:\USERS\DANIL\SOURCE\REPOS\TASKLIST\TASKLIST\DATA\DATABASETASK.MDF";
+        public DbSet<Models.Task> Tasks { get; set; }
+        public DbSet<Models.Project> Projects { get; set; }
+
+        private string sqlConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\danil\source\repos\TaskList\TaskList\Data\DatabaseTask.mdf;Integrated Security=True";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
