@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TaskList
+namespace TaskList.View
 {
-    public partial class Form1 : Form
+    public partial class FormSettings : Form
     {
-        public Form1()
+        public FormSettings()
         {
             InitializeComponent();
         }
