@@ -12,6 +12,7 @@ namespace TaskList.View
 {
     public partial class FormMain : Form
     {
+        public static Data.ApplicationDbContext db = new Data.ApplicationDbContext();
         public FormMain()
         {
             InitializeComponent();
@@ -21,6 +22,16 @@ namespace TaskList.View
         {
             FormSettings f = new FormSettings();
             f.ShowDialog();
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

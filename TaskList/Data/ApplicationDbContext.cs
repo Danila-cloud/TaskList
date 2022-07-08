@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TaskList.Data
 {
-    class ApplicationDbContextv : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public DbSet<Models.Task> Tasks { get; set; }
         public DbSet<Models.Project> Projects { get; set; }
