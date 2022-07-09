@@ -32,6 +32,8 @@ namespace TaskList.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.defauldColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toPdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +46,7 @@ namespace TaskList.View
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.changeColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.defauldColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -57,7 +58,8 @@ namespace TaskList.View
             this.settingsToolStripMenuItem,
             this.toPdfToolStripMenuItem,
             this.openToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.deleteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -73,6 +75,21 @@ namespace TaskList.View
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // changeColorToolStripMenuItem
+            // 
+            this.changeColorToolStripMenuItem.Name = "changeColorToolStripMenuItem";
+            this.changeColorToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.changeColorToolStripMenuItem.Text = "Change color";
+            this.changeColorToolStripMenuItem.Click += new System.EventHandler(this.changeColorToolStripMenuItem_Click);
+            // 
+            // defauldColorToolStripMenuItem
+            // 
+            this.defauldColorToolStripMenuItem.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.defauldColorToolStripMenuItem.Name = "defauldColorToolStripMenuItem";
+            this.defauldColorToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.defauldColorToolStripMenuItem.Text = "Defauld color";
+            this.defauldColorToolStripMenuItem.Click += new System.EventHandler(this.defauldColorToolStripMenuItem_Click);
             // 
             // toPdfToolStripMenuItem
             // 
@@ -177,20 +194,12 @@ namespace TaskList.View
             this.label1.TabIndex = 3;
             this.label1.Text = "Tasks:";
             // 
-            // changeColorToolStripMenuItem
+            // deleteToolStripMenuItem
             // 
-            this.changeColorToolStripMenuItem.Name = "changeColorToolStripMenuItem";
-            this.changeColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.changeColorToolStripMenuItem.Text = "Change color";
-            this.changeColorToolStripMenuItem.Click += new System.EventHandler(this.changeColorToolStripMenuItem_Click);
-            // 
-            // defauldColorToolStripMenuItem
-            // 
-            this.defauldColorToolStripMenuItem.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.defauldColorToolStripMenuItem.Name = "defauldColorToolStripMenuItem";
-            this.defauldColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.defauldColorToolStripMenuItem.Text = "Defauld color";
-            this.defauldColorToolStripMenuItem.Click += new System.EventHandler(this.defauldColorToolStripMenuItem_Click);
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -234,5 +243,6 @@ namespace TaskList.View
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripMenuItem changeColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem defauldColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

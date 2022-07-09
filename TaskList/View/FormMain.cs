@@ -138,5 +138,12 @@ namespace TaskList.View
         {
             this.BackColor = System.Drawing.Color.WhiteSmoke;
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            db.Tasks.Remove(selectedTask);
+            db.SaveChanges();
+            LoadTasksToList();
+        }
     }
 }
