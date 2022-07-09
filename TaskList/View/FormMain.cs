@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TaskList.Models;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
+using System.Drawing;
 
 namespace TaskList.View
 {
@@ -51,6 +54,21 @@ namespace TaskList.View
 
         private void toPdfToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ClientSize = new System.Drawing.Size(450, 150);
+            using (PdfDocument document = new PdfDocument())
+            {
+                PdfPage page = document.Pages.Add();
+                PdfGraphics graphics = page.Graphics;
+                PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 16);
+                graphics.DrawString("Task name: " + selectedTask.Name + "\n"
+                    + "Description: " + selectedTask.Description + "\n"
+                    + "Date to complete: " + selectedTask.Date_complete + "\n"
+                    + "Priority: " + selectedTask.Priority + "\n"
+                    , font, PdfBrushes.Black, new Point(0, 0));
+                document.Save(selectedTask.Name + ".pdf");
+            }
+
+
             MessageBox.Show("Your task save to pdf");
         }
         Project selectedProject = null;
