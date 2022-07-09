@@ -19,20 +19,16 @@ namespace TaskList.View
             InitializeComponent();
             this.LoadProjectsToList();
         }
-        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormSettings f = new FormSettings();
-            f.ShowDialog();
-        }
+
 
         private void FormMain_Load(object sender, EventArgs e)
         {
 
         }
-
+        Models.Task selectedTask = null;
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            selectedTask = (Models.Task)(sender as ListBox).SelectedItem;
         }
         private void LoadProjectsToList()
         {
@@ -61,6 +57,68 @@ namespace TaskList.View
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedProject = (Project) (sender as ListBox).SelectedItem;
+            LoadTasksToList();
+        }
+
+        private void LoadTasksToList()
+        {
+            listBox1.Items.Clear();
+            db.Entry(selectedProject).Collection(p => p.Tasks).Load();
+            listBox1.Items.AddRange(selectedProject.Tasks.ToArray());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormTask f = new FormTask();
+            f.ShowDialog();
+            if (f.DialogResult == DialogResult.OK)
+            {
+                Models.Task p = new Models.Task
+                {
+                    Name = f.textBox1.Text,
+                    Date_complete = f.dateTimePicker1.Value,
+                    Description = f.textBox2.Text,
+                    Priority = f.comboBox1.Text
+                };
+                p.Project = selectedProject;
+                db.Tasks.Add(p);
+                db.SaveChanges();
+                LoadTasksToList();
+            }
+
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Name: " + selectedTask.Name + "\n"
+                + "Description: " + selectedTask.Description + "\n"
+                + "Date to complete: " + selectedTask.Date_complete + "\n"
+                + "Priority: " + selectedTask.Priority);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This application was created for ItStep exam by Danylo Provilskyi");
+        }
+
+        private void changeColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            colorDialog1.AnyColor = true;
+            colorDialog1.ShowDialog();
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void defauldColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
         }
     }
 }

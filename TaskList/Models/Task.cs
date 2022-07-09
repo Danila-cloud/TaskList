@@ -30,5 +30,9 @@ namespace TaskList.Models
 
         public Project Project { get; set; }
 
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }
